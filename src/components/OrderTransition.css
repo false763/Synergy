@@ -1,0 +1,52 @@
+.order-transition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .order-transition__stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  
+  .order-transition__stage:last-child {
+    margin-bottom: 0;
+  }
+  
+  .order-transition__stage__label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .order-transition__stage--completed .order-transition__stage__label {
+    color: #28a745;
+  }
+  
+  .order-transition__stage__arrow {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #6c757d;
+    background-color: #fff;
+  }
+  
+  .order-transition__stage__arrow--left {
+    left: -15px;
+    transform: rotate(45deg);
+  }
+  
+  .order-transition__stage__arrow--right {
+    right: -15px;
+    transform: rotate(-135deg);
+  }
+  
+  .order-transition__stage--completed .order-transition__stage__arrow {
+    border-color: #28a745;
+  }
+  
