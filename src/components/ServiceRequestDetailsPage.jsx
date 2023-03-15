@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import ChatBubble from './ChatBubble';
 import { useParams } from 'react-router-dom';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
-import GetUserRoles from './GetUserRoles';
+import { MyLoginContext } from '../App';
 
 const ServiceRequestDetailsPage = () => {
   const { id } = useParams();
   const [myRecordData, setMyRecordData] = useState(null);
-
+  const data = useContext(MyLoginContext);
+  console.log("DataFromMyLoginContext",data);
+  const { isLoggedIn} = data;
   useEffect(() => {
     const fetchRecord = async () => {
       const db = getFirestore();
@@ -28,7 +30,8 @@ const ServiceRequestDetailsPage = () => {
 
   return (
     <>
-      {myRecordData ? (
+      {isLoggedIn ?  
+      (<>{myRecordData ? (
         myRecordData.Message.length > 0 ? (
           <><div className='service-detail-page-tab'>
            
@@ -77,7 +80,7 @@ const ServiceRequestDetailsPage = () => {
         )
       ) : (
         <p>Loading data...</p>
-      )}
+      )}</>) : <>Please Login to see the data</>}
       {/* <GetUserRoles/> */}
     </>
   );

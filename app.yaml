@@ -1,0 +1,18 @@
+runtime: nodejs14
+
+env_variables:
+  NODE_ENV: production
+
+handlers:
+  # Serve all static files with cache expiration of 1 hour
+  - url: /(.*\.(gif|png|jpg|css|js|ico|html|woff2|woff|ttf|svg))$
+    static_files: build/\1
+    upload: build/(.*\.(gif|png|jpg|css|js|ico|html|woff2|woff|ttf|svg))$
+    expiration: "1h"
+    # Catch all handler to index.html
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
+    # Optional: Enable CORS support
+    http_headers:
+      Access-Control-Allow-Origin: "*"

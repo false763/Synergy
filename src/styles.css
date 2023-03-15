@@ -1,36 +1,66 @@
 .service-request-table {
-    margin: 20px;
-  }
-  
-  .service-request-details-card {
-    width: 400px;
-    margin: 20px auto;
-  }
-  
-  .service-request-details-header {
-    background-color: #17a2b8;
-    color: #fff;
-  }
-  
-@media (min-width: 600px){
-.css-1orzy9s {
+  margin: 20px;
+}
+
+.service-request-details-card {
+  width: 400px;
+  margin: 20px auto;
+}
+
+.service-request-details-header {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+@media (min-width: 600px) {
+  .o-container {
     margin-left: auto !important;
     width: 400px !important;
-}}
-@media (min-width: 900px){
-.css-xdmu94-MuiContainer-root {
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .o-container {
+    max-width: 100% !important;
+    margin-top: 24px !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .css-1orzy9s {
+    margin-left: auto !important;
+    width: 400px !important;
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .css-1c0cfyw {
+    max-width: 100% !important;
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .css-xdmu94-MuiContainer-root {
     max-width: 100% !important;
     margin-top: 20px;
+    margin-top: 24px;
     /* background-color: #f5eec2; */
-}}
-.css-bhp9pd-MuiPaper-root-MuiCard-root{
+  }
+}
+
+.css-bhp9pd-MuiPaper-root-MuiCard-root {
   width: 100% !important;
   height: 200px !important;
 }
+
 form.makeStyles-root-1 {
   display: flex;
   flex-direction: column;
 }
+
 /* styles.css */
 
 /* center the logo and adjust its size */
@@ -52,21 +82,30 @@ a:hover {
   text-decoration: underline;
 }
 
-.css-hip9hq-MuiPaper-root-MuiAppBar-root{
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
   background-color: #1976d2 !important;
-  
 }
+
+
+
 /* sample style */
 
 .card-panel {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 100%;
+  width: 100% !important;
+  height: 300px !important;
   margin-bottom: 20px;
   border-radius: 13px;
   background-color: #fff;
+}
+
+.card-panel-critical {
   border-left: 5px solid red;
-  
+}
+
+.card-panel-positive {
+  border-left: 5px solid rgb(42, 184, 85);
 }
 
 .card-panel:hover {
@@ -152,25 +191,25 @@ a:hover {
 }
 
 
-.service-detail-page-tab{
+.service-detail-page-tab {
   background-color: #ffffff;
   box-shadow: 0 8px 16px 0 rgba(155, 155, 155, 0.8);
   margin: 10px;
-  padding:3%;
+  padding: 3%;
   border-radius: 12px;
   display: flex;
 }
 
-.tab-left{
+.tab-left {
   width: 1000px;
 }
 
-.tab-right{
+.tab-right {
   background-color: #dc3545;
   margin-left: 4rem;
-  
 
-  
+
+
 }
 
 .circular-score {
@@ -182,7 +221,7 @@ a:hover {
   height: 100px;
   border-radius: 50%;
   margin-left: 120px;
- 
+
 }
 
 .score {
@@ -193,8 +232,8 @@ a:hover {
   text-align: center;
 }
 
-.bubble{
-  
+.bubble {
+
   margin: 1rem;
   padding-left: 10px;
   padding-right: 10px;
@@ -203,8 +242,58 @@ a:hover {
   border-radius: 12px;
 }
 
-.title{
+.title {
   display: flex;
 }
 
+.order-transition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
+.order-transition__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.order-transition__stage:last-child {
+  margin-bottom: 0;
+}
+
+.order-transition__stage__label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.order-transition__stage--completed .order-transition__stage__label {
+  color: #28a745;
+}
+
+.order-transition__stage__arrow {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #6c757d;
+  background-color: #fff;
+}
+
+.order-transition__stage__arrow--left {
+  left: -15px;
+  transform: rotate(45deg);
+}
+
+.order-transition__stage__arrow--right {
+  right: -15px;
+  transform: rotate(-135deg);
+}
+
+.order-transition__stage--completed .order-transition__stage__arrow {
+  border-color: #28a745;
+}

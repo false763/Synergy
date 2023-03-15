@@ -1,16 +1,40 @@
-import React from 'react';
+import React,{createContext,useEffect,useState} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ServiceRequestTable from './components/ServiceRequestTable';
 import ServiceRequestDetailsPage from './components/ServiceRequestDetailsPage';
 import Header from './components/Header';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import {auth} from './components/firebase';
 import RoleBasedSrTable from './components/RoleBasedSrTable';
+import "./styles.css";
+
+export const MyLoginContext = createContext();
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Check if user is logged in using onAuthStateChanged
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setIsLoggedIn(!!user);
+      localStorage.setItem('isLoggedIn', !!user);
+    });
+
+    return unsubscribe;
+  }, []);
+
+  // Retrieve isLoggedIn from localStorage on component mount
+  useEffect(() => {
+    const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
+    setIsLoggedIn(!!storedIsLoggedIn);
+  }, []);
+
   return (
     <>
+    <MyLoginContext.Provider value={{isLoggedIn}}>
     <Header/>
+    {/* <div className='o-container'> */}
     <BrowserRouter>
       <Routes>
         <Route path="/home" element={<ServiceRequestTable />} />
@@ -21,6 +45,8 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+    {/* </div> */}
+    </MyLoginContext.Provider>
     </>
   );
 }
