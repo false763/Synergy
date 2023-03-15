@@ -34,7 +34,6 @@ function App() {
     <>
     <MyLoginContext.Provider value={{isLoggedIn}}>
     <Header/>
-    {/* <div className='o-container'> */}
     <BrowserRouter>
       <Routes>
         <Route path="/home" element={<ServiceRequestTable />} />
@@ -45,7 +44,6 @@ function App() {
 
       </Routes>
     </BrowserRouter>
-    {/* </div> */}
     </MyLoginContext.Provider>
     </>
   );
